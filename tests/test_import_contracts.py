@@ -22,6 +22,7 @@ MODULES = [
     "src.three_t_parametric_certificate",
     "src.three_t_exact_branch_frontier",
     "src.correlation_tube",
+    "src.three_t_simple_state_certificate",
 ]
 
 class ImportContractTests(unittest.TestCase):
