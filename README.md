@@ -10,6 +10,13 @@ For **every** Schmidt-phase two-qubit input `cos(theta)|00>+exp(i phi)sin(theta)
 
 **[Complete two-parameter theorem, proof and reproduction](notes/general_phase_frontier.md)** · [symbolic certificate](src/general_phase_certificate.py) · [matrix tests](tests/test_general_phase.py)
 
+## Further exact corollaries (proved, novelty unverified)
+
+1. **Two-T isomagic separation:** two Bell-derived maximally entangled states with the same concurrence 1 and M2 = log2(64/49) have *different* optimal two-T gains: 0.781819829950 versus 0.713388650476 bits. All 225 words for the latter state are certified with exact rational interval signs.
+2. **Local-only Clifford routing:** Restricting intermediate Cliffords to single-qubit gates gives 36 two-T Pauli words, 5 exact classes, and sharp at-most-two-T output moment `min(A,D,3R_in/4)`. At an intrinsically magical entangled input, unrestricted entangling Clifford routing improves the gain by exactly `log2(129/121)` bits over local-only gates.
+
+See [full proofs and circuit-model cautions](notes/extension_corollaries.md), [isomagic certificate](src/two_t_isomagic_counterexample.py), [local-routing certificate](src/local_clifford_frontier.py). These are **not** yet novelty-certified or physical-depth-constrained results.
+
 ## Earlier one-phase slice (also proved 29 October 2026)
 
 For the entangled input family **cos(theta)|00> + exp(i*pi/4)sin(theta)|11>** (phase **pi/4, not pi/2**), we have now proved a sharp **three-branch conditional two-T gain**, with transitions at squared concurrence `(3-sqrt(5))/2` and `2*(sqrt(2)-1)`. The proof classifies all **225** ordered Pauli-axis pairs into 15 exact fourth-moment classes, excludes all inactive classes using exact rational Bernstein and quartic positivity certificates, and independently checks all 225 words with dense state-vector simulation. This is **arbitrary free two-qubit Clifford routing, NOT bounded physical circuit depth**. Full statement and proof: [notes/two_t_frontier.md](notes/two_t_frontier.md). Novelty in the published literature remains unverified.
@@ -30,6 +37,8 @@ python -m src.symbolic_verify
 python -m src.exact_counterexample
 python -m src.two_t_frontier_certificate
 python -m src.general_phase_certificate
+python -m src.two_t_isomagic_counterexample
+python -m src.local_clifford_frontier
 python -m unittest discover -s tests -v
 ```
 
