@@ -4,7 +4,13 @@
 
 Study tight input-conditioned changes of the second stabilizer Rényi entropy M2 under limited-depth Clifford+T circuits, focusing on entangled inputs with prior magic. A universal one-T bound and the unconstrained two-qubit magic–entanglement frontier are already known and are **not** claimed as discoveries.
 
-## New universal theorem: one CNOT suffices for every two-qubit input (29 October 2026)
+## Main new exact result: three-T magic needs two CNOTs for a fixed input (29 October 2026)
+
+For the partially entangled magical input `[-1+3i, -7-i, -1+i, -1+4i] / sqrt(79)`, **at most three T gates** give a sharp entangling budget of **exactly TWO physical CNOTs** to attain the unrestricted output M2 optimum. Unrestricted minimum fourth moment: `1103764401/623201296` via axes `(YY,XI,XY)`. With at most one CNOT: `69521131/38950081`. Exact positive gap: `8573695/623201296`, equivalent to `0.011163101877318` extra bits. This is **not** a numerical estimate: a `Q(sqrt2)` integer certificate exhausts 3616 unrestricted 0/1/2/3-T words and an overcomplete 19897 one-CNOT-or-less signed circuit candidates, explicitly checking all positions of the CNOT. A constructive compiler proves any three-Pauli-T word needs at most two CNOTs **up to an irrelevant final Clifford**, and the witness achieves exactly two.
+
+[**Precise theorem and finite proof**](notes/three_t_two_cnot_threshold.md) · [exact certificate](src/three_t_exact_gap.py) · [two-CNOT compiler](src/three_t_two_cnot_compiler.py) · [independent tests](tests/test_three_t_exact_gap.py). **Publication novelty NOT confirmed**; extensive supplemental/citation audit and expert scrutiny remain necessary.
+
+## Earlier universal theorem: one CNOT suffices for every two-qubit input (29 October 2026)
 
 **No Schmidt alignment assumption.** For any pure two-qubit input and at most **two T gates**, arbitrary global Clifford routing yields no greater M2 than **one physical CNOT** plus arbitrary single-qubit Cliffords. The proof simultaneously localizes *any two* nonidentity Pauli axes using local Cliffords and one oriented CNOT, then drops a final Clifford which leaves M2 invariant. All **225** ordered axis pairs are certified (36 already local; 189 with one CNOT), with signed 4×4 dense-matrix verification and a complete six-case pen-and-paper proof.
 
