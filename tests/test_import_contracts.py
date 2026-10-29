@@ -23,6 +23,7 @@ MODULES = [
     "src.three_t_exact_branch_frontier",
     "src.correlation_tube",
     "src.three_t_simple_state_certificate",
+    "src.maximal_magic_orbit_certificate",
 ]
 
 class ImportContractTests(unittest.TestCase):
