@@ -4,7 +4,13 @@
 
 Study tight input-conditioned changes of the second stabilizer Rényi entropy M2 under limited-depth Clifford+T circuits, focusing on entangled inputs with prior magic. A universal one-T bound and the unconstrained two-qubit magic–entanglement frontier are already known and are **not** claimed as discoveries.
 
-## Exact two-T input-conditioned frontier (proved 29 October 2026)
+## Main result: exact two-parameter two-T frontier (proved 29 October 2026)
+
+For **every** Schmidt-phase two-qubit input `cos(theta)|00>+exp(i phi)sin(theta)|11>`, we proved the exact maximal M2 increase with **at most two T gates and arbitrary global two-qubit Clifford routing**, in a closed-form minimum of **three explicit polynomial branches**. All **225** Pauli-axis words collapse into **21** exact moment classes, and all 18 inactive classes are excluded by **42 exact Q(sqrt(2)) Bernstein rectangles**, independently cross-checked by dense matrix simulation. The sharp circuit phase diagram has a triple point at `sin²(phi)=sqrt(5)-2`, `sin²(2theta)=(1+sqrt(5))/4`; its middle branch yields a constant gain `log2(16/11)`. **No physical Clifford-depth bound. Novelty not yet verified against all published work.**
+
+**[Complete two-parameter theorem, proof and reproduction](notes/general_phase_frontier.md)** · [symbolic certificate](src/general_phase_certificate.py) · [matrix tests](tests/test_general_phase.py)
+
+## Earlier one-phase slice (also proved 29 October 2026)
 
 For the entangled input family **cos(theta)|00> + exp(i*pi/4)sin(theta)|11>** (phase **pi/4, not pi/2**), we have now proved a sharp **three-branch conditional two-T gain**, with transitions at squared concurrence `(3-sqrt(5))/2` and `2*(sqrt(2)-1)`. The proof classifies all **225** ordered Pauli-axis pairs into 15 exact fourth-moment classes, excludes all inactive classes using exact rational Bernstein and quartic positivity certificates, and independently checks all 225 words with dense state-vector simulation. This is **arbitrary free two-qubit Clifford routing, NOT bounded physical circuit depth**. Full statement and proof: [notes/two_t_frontier.md](notes/two_t_frontier.md). Novelty in the published literature remains unverified.
 
@@ -23,6 +29,7 @@ python -m pip install -r requirements.txt
 python -m src.symbolic_verify
 python -m src.exact_counterexample
 python -m src.two_t_frontier_certificate
+python -m src.general_phase_certificate
 python -m unittest discover -s tests -v
 ```
 
