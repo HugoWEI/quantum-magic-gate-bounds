@@ -20,6 +20,8 @@ MODULES = [
     "src.three_t_two_cnot_compiler",
     "src.three_t_symplectic_obstruction",
     "src.three_t_parametric_certificate",
+    "src.three_t_exact_branch_frontier",
+    "src.correlation_tube",
 ]
 
 class ImportContractTests(unittest.TestCase):
