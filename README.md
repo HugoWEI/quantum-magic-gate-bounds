@@ -4,7 +4,15 @@
 
 Study tight input-conditioned changes of the second stabilizer Rényi entropy M2 under limited-depth Clifford+T circuits, focusing on entangled inputs with prior magic. A universal one-T bound and the unconstrained two-qubit magic–entanglement frontier are already known and are **not** claimed as discoveries.
 
-## New: exact entangling-depth-one theorem and intrinsic-magic separation (29 October 2026)
+## New universal theorem: one CNOT suffices for every two-qubit input (29 October 2026)
+
+**No Schmidt alignment assumption.** For any pure two-qubit input and at most **two T gates**, arbitrary global Clifford routing yields no greater M2 than **one physical CNOT** plus arbitrary single-qubit Cliffords. The proof simultaneously localizes *any two* nonidentity Pauli axes using local Cliffords and one oriented CNOT, then drops a final Clifford which leaves M2 invariant. All **225** ordered axis pairs are certified (36 already local; 189 with one CNOT), with signed 4×4 dense-matrix verification and a complete six-case pen-and-paper proof.
+
+**Exact input-specific minimum CNOT cost:** compare all 43 zero-CNOT Pauli words against the 241 unrestricted zero/one/two-T words. The minimum budget is **0 or 1**, according to whether the two minimum fourth moments agree. [Theorem, proof, bibliography and limitations](notes/universal_one_cnot.md) · [Clifford witness compiler](src/one_cnot_universality.py) · [arbitrary-input cost oracle](src/cnot_cost_oracle.py). A seeded exploratory 200-state Haar sample found strict one-CNOT benefit for 168 inputs (not a theorem).
+
+**Importantly:** this is a simple Clifford localization statement whose **literature novelty is not established**; it does not optimize exact unitary synthesis or fully timed circuit depth. A potentially richer case starts at **three T gates**, where 1530 of 3375 Pauli triples resist simultaneous localization by a common one-CNOT pre-Clifford (this alone does **not** imply a 2-CNOT lower bound). [Three-T exploratory classifier](src/three_t_prelocalization.py).
+
+## Special Schmidt-family entangling-depth-one theorem and intrinsic-magic separation (29 October 2026)
 
 - **One physical CNOT suffices** to attain the full two-T Schmidt-phase magic optimum. Three explicit H/S/T/CNOT circuit templates attain the A/B/C branches with **0/1/1 CNOT**, because they equal the Pauli-word optimum up to a final Clifford. At theta=pi/8, phi=pi/4, 0 CNOT cannot attain it (129/64 vs 121/64 fourth moments), so 1 is sometimes **necessary and sufficient**. This is a real entangling-gate-count theorem for an M2 objective, **not** an exact-unitary synthesis theorem.
 - **Intrinsically magical isomagic pair:** two *partially* entangled inputs with equal concurrence sqrt(3)/2 and initial M2=log2(128/91) have different two-T optimal gain: state A's optimum is 0.547449 bits while state B has a certified **achievable** 0.649357 bits. The strict difference is proved by rational intervals, without claiming that B's full optimum is known.
@@ -49,6 +57,8 @@ python -m src.two_t_isomagic_counterexample
 python -m src.local_clifford_frontier
 python -m src.one_cnot_saturation
 python -m src.intrinsic_isomagic_separation
+python -m src.one_cnot_universality
+python -m src.three_t_prelocalization
 python -m unittest discover -s tests -v
 ```
 
