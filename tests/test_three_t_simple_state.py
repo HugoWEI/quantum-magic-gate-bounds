@@ -25,6 +25,21 @@ class SimpleStateThreeTTests(unittest.TestCase):
         self.assertGreater(sign(minus(times(gap,25),(64**4,0,0,0))),0)
         self.assertEqual(moment(START,0),(40697856,0,0,0))
 
+    def test_near_flat_pauli_correlation_spectrum(self):
+        from src.magic_bounds import paulis
+        psi=simple_state()
+        good=evolved(psi,("XX","IZ","IY"),(1,1,1))
+        constrained=evolved(psi,("ZX","IY","ZI"),(-1,-1,-1))
+        def profile(s):
+            return [abs(float(np.vdot(s,gate@s).real))
+                    for name,gate in paulis(2).items() if name!="II"]
+        v=profile(good)
+        w=profile(constrained)
+        self.assertEqual(sum(.48<x<.52 for x in v),12)
+        self.assertEqual(sum(.48<x<.52 for x in w),2)
+        self.assertEqual(sum(x<1e-11 for x in v),2)
+        self.assertAlmostEqual(sum(x*x for x in v),3,places=11)
+
     def test_statevectors_and_magic_ceiling(self):
         psi=simple_state()
         self.assertAlmostEqual(concurrence(psi),.5,places=12)
