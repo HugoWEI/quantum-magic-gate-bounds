@@ -66,6 +66,22 @@ For the explicit witness triple (YY,XI,XY), [src/three_t_two_cnot_compiler.py](.
 
 This is a magic-objective two-CNOT upper bound for **any input**, not an assertion about exact unitary-synthesis cost or a physical clock-depth lower bound.
 
+## Robustness: a proven open ball of magical entangled inputs
+
+The strict two-CNOT advantage holds in an open region, not merely at one algebraic input. For normalized pure two-qubit states \(\psi,\varphi\), put \(\delta=\|\psi-\varphi\|_2\). For any Pauli P,
+\[
+|\langle P\rangle_\psi-\langle P\rangle_\varphi|\le 2\delta
+\]
+by adding/subtracting the cross term and applying Cauchy–Schwarz. Since each expectation is real and in [-1,1], \(|a^4-b^4|\le4|a-b|\le8\delta\). The II term is identically one, so for any unitary U,
+\[
+|R(U\psi)-R(U\varphi)|\le 15\cdot8\delta=120\delta.
+\]
+Taking the minimum over any fixed family of unitaries preserves this Lipschitz bound. In particular, for the *gap function* \(G(\psi)=R_{\le1\mathrm{CNOT}}(\psi)-R_{\rm unrestricted}(\psi)\), where both families allow <=3 Ts,
+\[
+|G(\psi)-G(\varphi)|\le240\delta.
+\]
+At our witness \(G(\psi_*)=8573695/623201296>3/250=0.012\). Hence, **every normalized** \(\varphi\) satisfying \(\|\varphi-\psi_*\|_2<1/20000\) has \(G(\varphi)>0\), since \(240/20000=0.012\). This establishes an **open ball of inputs** for which two CNOTs are necessary and (by the constructive upper bound) sufficient. Partially entangled nonstabilizer status also persists in a sufficiently small neighborhood by continuity.
+
 ## Reproduction
 
 \`\`\`bash
