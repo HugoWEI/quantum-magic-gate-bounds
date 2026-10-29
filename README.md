@@ -4,7 +4,13 @@
 
 Study tight input-conditioned changes of the second stabilizer Rényi entropy M2 under limited-depth Clifford+T circuits, focusing on entangled inputs with prior magic. A universal one-T bound and the unconstrained two-qubit magic–entanglement frontier are already known and are **not** claimed as discoveries.
 
-## NEW: exact rational three-T optimal frontiers + correlation-space tube (30 Oct 2026)
+## NEW: simple rotated-Schmidt input needs two CNOTs and reaches near-maximal magic (30 Oct 2026)
+
+A clean input `chi=(Rx(pi/4)⊗I)[cos(pi/12)|00>+exp(i*pi/12)sin(pi/12)|11>]` has **concurrence 1/2**, initial `R=621/256` and intrinsic nonstabilizer magic. With at most **three T gates**, its unrestricted optimum is attained by `(XX,IZ,IY)`, while the best **at-most-one-CNOT** circuit uses signed `(-ZX,-IY,-ZI)`. Exact fourth moments are in the small biquadratic field `Q(sqrt2,sqrt3)` and satisfy a strict **gap > 1/25 = 0.04** (actual ≈0.04725285), corresponding to **0.03843 extra stabilizer Rényi bits**. The optimal two-CNOT output achieves M2≈1.192319, just ≈0.000326 bits below the two-qubit pure-state maximum log2(16/7).
+
+This is fully certified by a **separate** exact algebraic-number implementation (3616 unrestricted / 19897 conservatively exhaustive restricted circuits, with integer-square-root sign certification), corroborated by dense-statevector tests. See [complete theorem and exact expressions](notes/simple_state_three_t_threshold.md), [code](src/three_t_simple_state_certificate.py) and [tests](tests/test_three_t_simple_state.py). **Publication originality remains unverified.** Schmidt alignment alone showed no two-CNOT gap on an 81-point exploratory grid (not a theorem); the local basis orientation appears crucial.
+
+## Earlier: exact rational three-T optimal frontiers + correlation-space tube (30 Oct 2026)
 
 For every `-1/8 <= s <= 1/4` in our explicit partially entangled magical family, the optimal unrestricted <=3T output is attained by **(YY,XI,XY)**, and the exact <=1-CNOT output by the **two-T** word **(ZI,ZY)**. We proved the exact rational formulas `R_unrestricted=PG(s)/(16*N(s)^4)` and `R_<=1CNOT=PR(s)/N(s)^4`, with `N(s)=s²+8s+79`, by grouping 3616 unrestricted circuits into **1876** exact polynomial classes and 19897 restricted candidates into **1258** classes. **All 3134 exact Bernstein class-dominance inequalities pass**, and a separate 9-coefficient positivity argument proves the difference polynomial is positive.
 
