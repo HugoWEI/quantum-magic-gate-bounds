@@ -4,7 +4,13 @@
 
 Study tight input-conditioned changes of the second stabilizer Rényi entropy M2 under limited-depth Clifford+T circuits, focusing on entangled inputs with prior magic. A universal one-T bound and the unconstrained two-qubit magic–entanglement frontier are already known and are **not** claimed as discoveries.
 
-## NEW: exact continuous family with a uniform three-T two-CNOT advantage
+## NEW: exact rational three-T optimal frontiers + correlation-space tube (30 Oct 2026)
+
+For every `-1/8 <= s <= 1/4` in our explicit partially entangled magical family, the optimal unrestricted <=3T output is attained by **(YY,XI,XY)**, and the exact <=1-CNOT output by the **two-T** word **(ZI,ZY)**. We proved the exact rational formulas `R_unrestricted=PG(s)/(16*N(s)^4)` and `R_<=1CNOT=PR(s)/N(s)^4`, with `N(s)=s²+8s+79`, by grouping 3616 unrestricted circuits into **1876** exact polynomial classes and 19897 restricted candidates into **1258** classes. **All 3134 exact Bernstein class-dominance inequalities pass**, and a separate 9-coefficient positivity argument proves the difference polynomial is positive.
+
+The uniform >0.01 gap also implies a **full-dimensional measurable Pauli-correlation tube**: any pure input whose 15-component Pauli expectation vector lies within Euclidean distance **1/(800 sqrt(3))** of our reference correlation curve needs exactly 2 CNOTs for the <=3T magic optimum. This is a sufficient condition, not a global classification. [**Exact polynomials, certificate and correlation-tube proof**](notes/three_t_exact_branch_and_correlation_tube.md) · [code](src/three_t_exact_branch_frontier.py) · [tests](tests/test_three_t_exact_branch_frontier.py). **Publication novelty unverified.**
+
+## Earlier: exact continuous family with a uniform three-T two-CNOT advantage
 
 The previously isolated three-T witness is part of a provable **continuous 3/8-wide parameter interval**:
 `psi(s)=[-1+3i,-7-i,-1+i,-1+(4+s)i]/sqrt(79+8s+s²)` for **`-1/8 <= s <= 1/4`**. For **every** state on this family, with <=3 T gates, the best <=1-CNOT output Pauli fourth moment is **more than 1/100 larger** than the unrestricted optimum. The certificate compares a single constructive 2-CNOT word `(YY,XI,XY)` with all **19,897** one-CNOT-or-less candidate words and verifies **179,073 exact Q(sqrt(2)) Bernstein coefficient inequalities**. Independent direct 4x4 state-vector tests match the algebra. The states remain partially entangled and inherently magical.
