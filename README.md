@@ -4,7 +4,13 @@
 
 Study tight input-conditioned changes of the second stabilizer Rényi entropy M2 under limited-depth Clifford+T circuits, focusing on entangled inputs with prior magic. A universal one-T bound and the unconstrained two-qubit magic–entanglement frontier are already known and are **not** claimed as discoveries.
 
-## NEW: simple rotated-Schmidt input needs two CNOTs and reaches near-maximal magic (30 Oct 2026)
+## NEW: exact 99.9816% fidelity with the known maximal-magic Clifford orbit (30 Oct 2026)
+
+Our **two-CNOT, three-T magic-optimal output** from the clean rotated-Schmidt input is **uniquely closest** among all **480** known maximally magical two-qubit Clifford fiducials to `(I⊗S)(H⊗H)(1,i,i,i)/2`. The **exact** squared overlap is `(17+3 sqrt(3)+4 sqrt(6))/32 = 0.999815981...`; the second-best among the 480 is only ≈0.817912. The final state also has concurrence ≈0.71032, close to the nearest fiducial's 1/sqrt(2). The restricted circuit's **M2-optimal** output has lower nearest-orbit fidelity ≈0.959518 (not a global fidelity optimization over restricted circuits).
+
+A new [480-orbit exact certificate](src/maximal_magic_orbit_certificate.py) generates the orbit from signed 15-component Pauli expectation permutations using *exact Gaussian-integer Clifford matrix identities*, then compares all overlaps via exact Q(sqrt2,sqrt3) integer-square-root intervals. This connects our *gate-budget dynamical optimization* to the established *static 480-state maximal-magic geometry*. [Proof and interpretation](notes/exact_maximal_magic_orbit_proximity.md) · [independent matrix tests](tests/test_maximal_magic_orbit.py). **Novelty remains unverified; the 480-state orbit is known prior work.**
+
+## Earlier: simple rotated-Schmidt input needs two CNOTs and reaches near-maximal magic (30 Oct 2026)
 
 A clean input `chi=(Rx(pi/4)⊗I)[cos(pi/12)|00>+exp(i*pi/12)sin(pi/12)|11>]` has **concurrence 1/2**, initial `R=621/256` and intrinsic nonstabilizer magic. With at most **three T gates**, its unrestricted optimum is attained by `(XX,IZ,IY)`, while the best **at-most-one-CNOT** circuit uses signed `(-ZX,-IY,-ZI)`. Exact fourth moments are in the small biquadratic field `Q(sqrt2,sqrt3)` and satisfy a strict **gap > 1/25 = 0.04** (actual ≈0.04725285), corresponding to **0.03843 extra stabilizer Rényi bits**. The optimal two-CNOT output achieves M2≈1.192319, just ≈0.000326 bits below the two-qubit pure-state maximum log2(16/7).
 
