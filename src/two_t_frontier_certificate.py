@@ -103,6 +103,13 @@ def certify(verbose=True):
                   q*z**3:q*z*(1-t)}))
         target=core+S.sqrt(2)*q*z*(8-28*t)/16
         assert S.simplify(reduced-target)==0 or S.simplify(reduced-(2*core-target))==0
+    # Certify "at most two": a single T has optimal R_one=3*R_in/4
+    # by Zhu and an explicit saturating axis for this family.
+    r_initial=4-4*t+3*t*t
+    r_one=S.expand(S.Rational(3,4)*r_initial)
+    for L,R,reference in regions:
+        coefs=bernstein_coefficients(S.expand(r_one-reference),L,R)
+        assert all(value>=0 for value in coefs),("one-T case",coefs)
     if verbose:
         print("PASS 225 words, 15 exact classes")
         print("PASS 30 rational Bernstein certificates for 10 inactive polynomial classes")
