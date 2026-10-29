@@ -10,7 +10,7 @@ Study tight input-conditioned changes of the second stabilizer Rényi entropy M2
 
 **Exact input-specific minimum CNOT cost:** compare all 43 zero-CNOT Pauli words against the 241 unrestricted zero/one/two-T words. The minimum budget is **0 or 1**, according to whether the two minimum fourth moments agree. [Theorem, proof, bibliography and limitations](notes/universal_one_cnot.md) · [Clifford witness compiler](src/one_cnot_universality.py) · [arbitrary-input cost oracle](src/cnot_cost_oracle.py). A seeded exploratory 200-state Haar sample found strict one-CNOT benefit for 168 inputs (not a theorem).
 
-**Importantly:** this is a simple Clifford localization statement whose **literature novelty is not established**; it does not optimize exact unitary synthesis or fully timed circuit depth. A potentially richer case starts at **three T gates**, where 1530 of 3375 Pauli triples resist simultaneous localization by a common one-CNOT pre-Clifford (this alone does **not** imply a 2-CNOT lower bound). [Three-T exploratory classifier](src/three_t_prelocalization.py).
+**Importantly:** this is a simple Clifford localization statement whose **literature novelty is not established**; it does not optimize exact unitary synthesis or fully timed circuit depth. A potentially richer case starts at **three T gates**, where 1530 of 3375 ordered Pauli triples **cannot be simultaneously localized by any Clifford**, verified against all 720 two-qubit Clifford symplectic transformations (this is **not** a 2-CNOT lower bound for three-T magic optimization). [Three-T exploratory classifier](src/three_t_prelocalization.py).
 
 ## Special Schmidt-family entangling-depth-one theorem and intrinsic-magic separation (29 October 2026)
 
