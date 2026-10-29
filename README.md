@@ -4,7 +4,16 @@
 
 Study tight input-conditioned changes of the second stabilizer Rényi entropy M2 under limited-depth Clifford+T circuits, focusing on entangled inputs with prior magic. A universal one-T bound and the unconstrained two-qubit magic–entanglement frontier are already known and are **not** claimed as discoveries.
 
-## Main new exact result: three-T magic needs two CNOTs for a fixed input (29 October 2026)
+## NEW: exact continuous family with a uniform three-T two-CNOT advantage
+
+The previously isolated three-T witness is part of a provable **continuous 3/8-wide parameter interval**:
+`psi(s)=[-1+3i,-7-i,-1+i,-1+(4+s)i]/sqrt(79+8s+s²)` for **`-1/8 <= s <= 1/4`**. For **every** state on this family, with <=3 T gates, the best <=1-CNOT output Pauli fourth moment is **more than 1/100 larger** than the unrestricted optimum. The certificate compares a single constructive 2-CNOT word `(YY,XI,XY)` with all **19,897** one-CNOT-or-less candidate words and verifies **179,073 exact Q(sqrt(2)) Bernstein coefficient inequalities**. Independent direct 4x4 state-vector tests match the algebra. The states remain partially entangled and inherently magical.
+
+A compact **symplectic explanation** now classifies all 1530 three-Pauli axis triples that cannot be simultaneously localized in one Clifford frame: 1440 independent triples with >=2 anticommutations and 90 distinct mutually commuting stabilizer contexts. This structural obstruction is **not by itself a physical CNOT lower bound**; the strict polynomial certificate supplies the full result.
+
+[Parametric theorem, proof and classification](notes/three_t_parametric_and_symplectic.md) · [uniform exact certificate](src/three_t_parametric_certificate.py) · [symplectic graph checker](src/three_t_symplectic_obstruction.py) · [independent regression tests](tests/test_three_t_parametric.py). **Publication originality unverified.**
+
+## Earlier exact result: three-T magic needs two CNOTs for a fixed input (29 October 2026)
 
 For the partially entangled magical input `[-1+3i, -7-i, -1+i, -1+4i] / sqrt(79)`, **at most three T gates** give a sharp entangling budget of **exactly TWO physical CNOTs** to attain the unrestricted output M2 optimum. Unrestricted minimum fourth moment: `1103764401/623201296` via axes `(YY,XI,XY)`. With at most one CNOT: `69521131/38950081`. Exact positive gap: `8573695/623201296`, equivalent to `0.011163101877318` extra bits. This is **not** a numerical estimate: a `Q(sqrt2)` integer certificate exhausts 3616 unrestricted 0/1/2/3-T words and an overcomplete 19897 one-CNOT-or-less signed circuit candidates, explicitly checking all positions of the CNOT. A constructive compiler proves any three-Pauli-T word needs at most two CNOTs **up to an irrelevant final Clifford**, and the witness achieves exactly two.
 
