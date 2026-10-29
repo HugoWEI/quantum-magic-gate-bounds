@@ -23,4 +23,6 @@ jobs:
       - run: python -m src.three_t_prelocalization
       - run: python -m src.three_t_exact_gap
       - run: python -m src.three_t_two_cnot_compiler
+      - run: python -m src.three_t_symplectic_obstruction
+      - run: python -m src.three_t_parametric_certificate
       - run: python -m unittest discover -s tests -v
