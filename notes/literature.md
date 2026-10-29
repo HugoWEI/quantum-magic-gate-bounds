@@ -45,3 +45,11 @@ The new [CNOT and intrinsic-magic note](cnot_and_intrinsic_isomagic.md) gives ex
 - Webster, Koutsioumpas and Browne [Quantum 10, 2212 (2026)](https://doi.org/10.22331/q-2026-09-21-2212) optimize general Clifford synthesis by CNOT count/depth; do not conflate this with the new magic-objective-specific one-CNOT witness. Check their optimal two-qubit tables for simpler circuit identities.
 
 **Priority gap remains unverified:** abstracts/targeted sections alone cannot rule out matching earlier finite two-T enumerations or unpublished equivalent identities. An exhaustive reverse/forward citation graph and direct reading of supplements are required.
+
+## New priority audit: universal one-CNOT two-T normal form
+
+On 29 Oct 2026 we proved, for **any** pure two-qubit input and any **Clifford-invariant** output objective, that the unrestricted at-most-two-T optimum is achievable with **at most one CNOT** plus single-qubit Cliffords. Full [constructive proof and test](universal_one_cnot.md). The localization is elementary, and originality is **not claimed**.
+
+**Must compare foundational exact synthesis literature:** Xiaoning Bian and Peter Selinger, [*Generators and Relations for 2-Qubit Clifford+T Operators*](https://arxiv.org/abs/2204.02217) (submitted April 2022; QPL 2022 proceedings published 2023), already develop and formally verify Clifford+T presentations and Pauli rotation normal forms. This representation is known prior art. Clifford/CNOT optimization is separately addressed by [Webster et al. (2026)](https://doi.org/10.22331/q-2026-09-21-2212), and worst-case exact **unitary** CNOT requirements were established by [Shende, Markov, Bullock (2004)](https://www.nist.gov/publications/minimal-universal-two-qubit-controlled-not-based-circuits).
+
+**Next nontrivial research question:** conditioned three-T magic capacity and minimal entangling budget. Failure to simultaneously localize three axes with one *initial* Clifford is **not** evidence that a one-CNOT circuit cannot attain the same magic objective using interleaving or other identities.
