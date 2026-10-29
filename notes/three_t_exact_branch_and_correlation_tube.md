@@ -106,7 +106,7 @@ Since **G(\psi_s)>1/100** throughout the interval, any pure two-qubit input \(\v
 \]
 **must also require exactly two CNOTs** to reach its unrestricted at-most-three-T magic optimum.
 
-This gives an **explicit full-dimensional open tubular region in experimentally measurable Pauli-correlation space**, not merely the one-dimensional curve or a single state-vector ball. It remains a conservative sufficient condition, not a necessary one or a global characterization.
+This gives an **explicit open neighborhood in the six-real-dimensional manifold of pure two-qubit states**, described using experimentally measurable Pauli correlations. The pure-state correlation manifold is *not* full-dimensional in the ambient 15-dimensional Euclidean space. This is a conservative sufficient condition, not a necessary or global classification. It remains a conservative sufficient condition, not a necessary one or a global characterization.
 
 ## What is and is not novel
 
