@@ -31,4 +31,5 @@ jobs:
       - run: python -m src.three_t_symplectic_obstruction
       - run: python -m src.three_t_parametric_certificate
       - run: python -m src.three_t_exact_branch_frontier
+      - run: python -m src.three_t_simple_state_certificate
       - run: python -m unittest discover -s tests -v
