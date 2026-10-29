@@ -21,4 +21,6 @@ jobs:
       - run: python -m src.intrinsic_isomagic_separation
       - run: python -m src.one_cnot_universality
       - run: python -m src.three_t_prelocalization
+      - run: python -m src.three_t_exact_gap
+      - run: python -m src.three_t_two_cnot_compiler
       - run: python -m unittest discover -s tests -v
