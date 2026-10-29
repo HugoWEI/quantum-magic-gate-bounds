@@ -4,6 +4,14 @@
 
 Study tight input-conditioned changes of the second stabilizer Rényi entropy M2 under limited-depth Clifford+T circuits, focusing on entangled inputs with prior magic. A universal one-T bound and the unconstrained two-qubit magic–entanglement frontier are already known and are **not** claimed as discoveries.
 
+## New: exact entangling-depth-one theorem and intrinsic-magic separation (29 October 2026)
+
+- **One physical CNOT suffices** to attain the full two-T Schmidt-phase magic optimum. Three explicit H/S/T/CNOT circuit templates attain the A/B/C branches with **0/1/1 CNOT**, because they equal the Pauli-word optimum up to a final Clifford. At theta=pi/8, phi=pi/4, 0 CNOT cannot attain it (129/64 vs 121/64 fourth moments), so 1 is sometimes **necessary and sufficient**. This is a real entangling-gate-count theorem for an M2 objective, **not** an exact-unitary synthesis theorem.
+- **Intrinsically magical isomagic pair:** two *partially* entangled inputs with equal concurrence sqrt(3)/2 and initial M2=log2(128/91) have different two-T optimal gain: state A's optimum is 0.547449 bits while state B has a certified **achievable** 0.649357 bits. The strict difference is proved by rational intervals, without claiming that B's full optimum is known.
+- **Arbitrary-orientation oracle:** all 1+15+225 zero/one/two-T candidates can be compared from the input's 16 Pauli expectations, for any pure two-qubit input. This is an exact finite optimization evaluated numerically, not a generic closed-form analytic theorem.
+
+See [new proofs and circuit model](notes/cnot_and_intrinsic_isomagic.md), [one-CNOT code](src/one_cnot_saturation.py), [intrinsic-magic exact certificate](src/intrinsic_isomagic_separation.py) and [generic Pauli-moment optimizer](src/arbitrary_input_oracle.py). **Publication novelty has not been established.**
+
 ## Main result: exact two-parameter two-T frontier (proved 29 October 2026)
 
 For **every** Schmidt-phase two-qubit input `cos(theta)|00>+exp(i phi)sin(theta)|11>`, we proved the exact maximal M2 increase with **at most two T gates and arbitrary global two-qubit Clifford routing**, in a closed-form minimum of **three explicit polynomial branches**. All **225** Pauli-axis words collapse into **21** exact moment classes, and all 18 inactive classes are excluded by **42 exact Q(sqrt(2)) Bernstein rectangles**, independently cross-checked by dense matrix simulation. The sharp circuit phase diagram has a triple point at `sin²(phi)=sqrt(5)-2`, `sin²(2theta)=(1+sqrt(5))/4`; its middle branch yields a constant gain `log2(16/11)`. **No physical Clifford-depth bound. Novelty not yet verified against all published work.**
@@ -39,6 +47,8 @@ python -m src.two_t_frontier_certificate
 python -m src.general_phase_certificate
 python -m src.two_t_isomagic_counterexample
 python -m src.local_clifford_frontier
+python -m src.one_cnot_saturation
+python -m src.intrinsic_isomagic_separation
 python -m unittest discover -s tests -v
 ```
 
