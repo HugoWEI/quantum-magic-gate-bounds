@@ -53,9 +53,11 @@ def certify(verbose=True):
     positives=0;attain=0
     for formula in classes:
         diff=S.expand(formula-best)
-        if S.simplify(diff.subs({co:cv,si:sv}))==0:
+        if diff==0:
             attain+=1
         else:
+            # All other distinct formal classes have strict rational lower bounds.
+            # Do not repeatedly simplify nested algebraic substitutions.
             assert rational_lower(diff,bounds)>0
             positives+=1
     assert positives==69 and attain==1
