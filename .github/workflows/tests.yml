@@ -15,4 +15,6 @@ jobs:
       - run: python -m src.exact_counterexample
       - run: python -m src.two_t_frontier_certificate
       - run: python -m src.general_phase_certificate
+      - run: python -m src.two_t_isomagic_counterexample
+      - run: python -m src.local_clifford_frontier
       - run: python -m unittest discover -s tests -v
