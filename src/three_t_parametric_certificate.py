@@ -15,7 +15,7 @@ from fractions import Fraction
 from math import comb,lcm
 import sympy as S
 from src.three_t_exact_gap import (
-    AXES,ALL,PAULI,MIX,one_cnot_triples,STATE,EXPECT)
+    AXES,ALL,MATS as PAULI,MIX,one_cnot_triples,PSI as STATE,EXPECT)
 
 BASIS=S.Matrix([0,0,0,S.I])
 
