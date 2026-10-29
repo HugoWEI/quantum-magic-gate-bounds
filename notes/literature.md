@@ -21,3 +21,9 @@ For a **fixed entangled magic input** psi, define F_k(psi) as the maximum M2 inc
 3. Forward-citation search through 29 Oct 2026: "fixed-input magic capacity", "T gate stabilizer Rényi saturation", "Pauli rotation fourth moments", "amortized SRE equality", "two T gates magic growth".
 4. Check whether arbitrary global Clifford interleaving or strictly local Clifford gates are allowed in every claimed theorem; distinguish **T-count from physical depth**.
 5. Independently certify all candidate piecewise two-T frontiers over **225 Pauli-axis words**; simulations alone cannot prove a sharp bound.
+
+## Update: exact finite two-T slice theorem (29 October 2026)
+
+An exact 225-word, 15-class three-branch fixed-input theorem for |psi>=cos(theta)|00>+exp(i*pi/4)sin(theta)|11> was independently certified; details in [two_t_frontier.md](two_t_frontier.md). This is a **restricted-input theorem** allowing unrestricted global Clifford routing, not a physical-depth-constrained or arbitrary-input theorem, and must **not** be advertised as literature-novel yet.
+
+Additional relevant work: Szombathy, Valli, Moca, Asbóth, Farkas, Rakovszky and Zaránd, [*Spectral properties versus magic generation in T-doped random Clifford circuits*](https://doi.org/10.1103/557f-6tpb), *Physical Review Research* **7**, 043080 (2025), studies the distribution and nonstabilizing power of T-doped random Clifford circuits, including low-T behavior. Their random-ensemble statements are not the same optimization, but inspect their appendices and citing papers before novelty claims. The already established Zhu Theorem 2, Roman static Pareto boundary, and Hou non-stabilizer-input magic injection remain excluded from originality claims.
