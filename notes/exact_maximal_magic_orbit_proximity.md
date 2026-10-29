@@ -12,7 +12,7 @@ Take the input and output-optimal three-T Pauli word from [the clean threshold t
 \]
 where \(T_P=e^{-i\pi P/8}\). Output magic is \(M_2(\psi_{\rm out})\simeq1.1923192554\) bits, close to the established two-qubit maximum \(\log_2(16/7)\simeq1.192645\).
 
-Liu, Low and Yin (2025), and later Roman et al. (2026), identify a **480-element pure-state Clifford orbit of maximally magical states**, generated from the fiducial
+Liu, Low and Yin (2025 preprint; January 2026 journal publication), and later Roman et al. (2026), identify a **480-element pure-state Clifford orbit of maximally magical states**, generated from the fiducial
 \[
 |f\rangle=(|00\rangle+i|01\rangle+i|10\rangle+i|11\rangle)/2.
 \]
