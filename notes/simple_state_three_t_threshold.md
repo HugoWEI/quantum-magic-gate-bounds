@@ -54,6 +54,23 @@ M_{2,\le1\mathrm{CNOT}}\approx1.1538893517,\quad
 \]
 This gives more than three times the magic-bit separation of the earlier Gaussian-integer input. Moreover the two-CNOT state lies only **0.000325823 bits** below the known global two-qubit pure-state magic maximum \(\log_2(16/7)\) (see Liu–Low–Yin and Roman et al.). This makes the operational significance clearer: the extra entangling gate enables **near-maximal two-qubit magic** under the imposed non-Clifford gate budget.
 
+## An experimentally interpretable Pauli-correlation fingerprint
+
+The source of the near-maximal magic can be inspected directly without reconstructing a complete circuit unitary. For the winning three-T **Pauli-word output** (XX, IZ, IY), there are exactly two vanishing nonidentity Pauli expectations (IY and XI), one small nonzero expectation XY ≈ -0.02680159, and **12 further absolute Pauli expectations in (0.486, 0.514)**, extremely close to 1/2.
+
+For any normalized pure two-qubit state, Pauli purity implies
+\(\sum_{P\ne II}\langle P\rangle^2=3\).
+An idealized distribution with 12 absolute expectations equal to 1/2 and three equal to zero has fourth moment \(1+12(1/2)^4=7/4\), exactly the known global two-qubit optimum. The witnessed state is very close to this profile:
+\[
+\begin{array}{c|c|c}
+&\mathrm{3T,\le2\,CNOT}&\mathrm{3T,\le1\,CNOT}\\
+\hline
+\#\{P\ne II:0.48<|\langle P\rangle|<0.52\}&12&2\\
+R=1+\sum_{P\ne II}\langle P\rangle^4&1.75039527&1.79764812
+\end{array}
+\]
+The absolute-value **multiset** of Pauli correlations is invariant under Clifford permutations, so this fingerprint remains meaningful even though our low-CNOT compiler may omit a final entangling Clifford. This is a concrete intuition for *how* the extra entangling gate improves fourth-moment flattening. It is not, by itself, a theorem that the correlation shape characterizes all optimizers or proves uniqueness.
+
 ## Small exact field and verification
 
 Unlike the earlier Gaussian-integer witness, the input correlations belong to the degree-four field \(\mathbb Q(\sqrt2,\sqrt3)\). In the standard Pauli basis, the only nonzero expectation values, each represented as an integer expression divided by 8, are:
