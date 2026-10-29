@@ -17,4 +17,6 @@ jobs:
       - run: python -m src.general_phase_certificate
       - run: python -m src.two_t_isomagic_counterexample
       - run: python -m src.local_clifford_frontier
+      - run: python -m src.one_cnot_saturation
+      - run: python -m src.intrinsic_isomagic_separation
       - run: python -m unittest discover -s tests -v
