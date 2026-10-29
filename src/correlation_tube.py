@@ -49,10 +49,12 @@ def nearest_point(psi):
     return dist,smin
 
 def certificate(psi,numerical_guard=1e-11):
-    """A True value is a *sufficient*, not necessary, theoretical condition.
+    """Numerically screen a rigorously derived *sufficient* condition.
 
-    Caller should use certified interval arithmetic if very close to
-    threshold. The numerical_guard is a pragmatic floating-point buffer.
+    The strict mathematical radius is proven, but finding the nearest
+    point numerically does not itself constitute a formal interval
+    certificate; certify input coordinates and distance independently
+    when operating near the threshold.
     """
     distance,s=nearest_point(psi)
     return {'certified':bool(distance<RADIUS-numerical_guard),
