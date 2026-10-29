@@ -69,7 +69,11 @@ A reproducible **exploratory** Haar sample of 200 pure states (seed 20261029) fo
 
 ## Where the hard research question moves: >=3 T gates
 
-Three Pauli rotations require simultaneously localizing three Pauli axes if the **same** one-CNOT Clifford is to act before all Ts. Exhaustive axis-triple classification shows that among \(15^3=3375\) ordered triples, 216 are already local, 1629 can be simultaneously localized with one pre-CNOT and local gates, and **1530 cannot**. This is only a failure of the *simultaneous-localization strategy*, **not** a proof that the optimal three-T output magic requires more than one CNOT: a clever interleaved CNOT, different Pauli decomposition, or circuit identity may still suffice.
+Three Pauli rotations require simultaneous localization of three axes if **one shared Clifford** acts before all three Ts. We enumerated the **entire** two-qubit Clifford symplectic group \(\mathrm{Sp}(4,2)\), of order **720**, and all \(15^3=3375\) ordered triples. Exactly 216 are already local, 1629 become local with one CNOT and local gates, and **1530 cannot be simultaneously localized by any Clifford at all**, regardless of its CNOT count. The executable 720-element group certificate is [three_t_prelocalization.py](../src/three_t_prelocalization.py).
+
+The obstruction is structural, not merely a synthesis cost: take \((IX,IY,XX)\). Its first two axes anticommute, forcing their two weight-one Clifford images to occupy the same qubit. The third commutes with the first but anticommutes with the second. A third weight-one axis that has these commutation properties must equal the first up to sign; yet \(XX\) is independent of \(IX\). Thus no Clifford simultaneously localizes the triple.
+
+**Critical caution:** this does **not** prove that a three-T *output magic optimum* requires more than one CNOT, since a CNOT interleaved between Ts, an alternative Pauli decomposition, or a nontrivial Clifford+T identity might reproduce the same M2.
 
 Research target: prove or disprove universal one-CNOT sufficiency at T-count 3, identify explicit input witnesses and exact 0/1/2-CNOT magic-capacity separations, and establish minimal physical timed depth under stated hardware assumptions.
 
