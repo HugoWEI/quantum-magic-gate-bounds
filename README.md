@@ -4,7 +4,13 @@
 
 Study tight input-conditioned changes of the second stabilizer Rényi entropy M2 under limited-depth Clifford+T circuits, focusing on entangled inputs with prior magic. A universal one-T bound and the unconstrained two-qubit magic–entanglement frontier are already known and are **not** claimed as discoveries.
 
-## NEW: exact maximal two-qubit magic needs three T and two CNOTs (30 Oct 2026)
+## NEW: exact end-to-end accounting — tuned input prep costs four T and one CNOT (30 Oct 2026)
+
+The tuned magical input `chi*=(Rx(pi/4)⊗I)(A|00>+B|11>)` from our 3T/2CNOT fixed-input theorem is **not free** when prepared from a product stabilizer `|00>`. We have now proved its **sharp preparation cost: 4 T gates and 1 physical CNOT**. An exact normal-form enumeration of 3616 zero/one/two/three-T words shows that any two-qubit stabilizer input can produce only **nine** values of the Clifford-invariant Pauli fourth moment `R` with <=3 T; the tuned target has `R=153/64`, which is absent. A constructive 4-T local-rotation word `(IX,IY,IZ,XI)` followed by `H0,CNOT(0→1),H1,H0` reproduces every target Pauli correlation **exactly** (and the full state up to phase). Its entanglement proves one CNOT necessary from a *product* stabilizer.
+
+**Operational conclusion:** The specific staged path (prepare input, then maximize its magic) totals **7 T + 3 CNOT**, while Liu–Low–Yin (2026) already give a direct maximal-magic preparation from `|++>` using **3 T + 1 CNOT**. We independently verified that direct circuit. Thus our strict two-CNOT threshold remains a *fixed-input reachability* theorem; it is **not** evidence of a globally more efficient way to create maximal magic. [Full exact proof and honest comparison](notes/end_to_end_preparation_cost.md) · [machine-checkable certificate](src/input_preparation_cost.py) · [independent matrix tests](tests/test_input_preparation_cost.py). **Publication originality not established.**
+
+## Earlier: exact maximal two-qubit magic needs three T and two CNOTs (30 Oct 2026)
 
 We now have a **perfect**, not near-perfect, resource-state preparation result for a **fixed already-magical input**:
 
