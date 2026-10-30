@@ -73,7 +73,7 @@ T_{IY}T_{IZ}T_{XX}|\chi_*\rangle\sim
 |f_*\rangle=
 \frac{(1+3i)|00\rangle+(1+i)|01\rangle+(1-i)|10\rangle+(1+i)|11\rangle}{4}.}
 \]
-The identity can be verified purely algebraically: the output's 15 Pauli expectations are twelve values \(\pm1/2\) and three zeros, with *exactly the same signs and labels* as the given \(|f_*\rangle\). Equal Pauli expectations for all sixteen Paulis imply identical pure density matrices and thus state equality up to global phase. The earlier [universal two-CNOT compiler](../src/three_t_two_cnot_compiler.py) maps any three-Pauli T word to a physical circuit with at most two CNOTs **up to a final Clifford** (which preserves M2). A one-CNOT realization attaining the same final M2 would contradict the strict lower bound.
+The identity can be verified purely algebraically: the output's 15 Pauli expectations are twelve values \(\pm1/2\) and three zeros, with *exactly the same signs and labels* as the given \(|f_*\rangle\). Equal Pauli expectations for all sixteen Paulis imply identical pure density matrices and thus state equality up to global phase. The earlier [universal two-CNOT compiler](../src/three_t_two_cnot_compiler.py) maps any three-Pauli T word to a physical circuit with at most two CNOTs **up to a final Clifford** (which preserves M2). A one-CNOT realization attaining the same final M2 **from this fixed input within three T gates** would contradict the strict lower bound. The separate physical compiler test constructs a two-CNOT implementation and checks its output M2, allowing an irrelevant final Clifford.
 
 ## Exact, exhaustive lower-bound proof
 
@@ -106,6 +106,17 @@ Since the exact CNOT gap above is **strictly greater than \(1/25\)**, any pure t
 \boxed{\|r(\varphi)-r(\chi_*)\|_2<\frac{1}{200\sqrt3}\simeq0.002887}
 \]
 is **also guaranteed** to have a positive two-CNOT advantage when maximizing final \(M_2\) with at most three T gates. This gives an *open neighborhood* of inputs with exactly-two-CNOT resource requirement, characterized entirely by measurable input correlations. The radius is a deliberately conservative sufficient bound, not a complete classification or a realistic hardware noise tolerance.
+
+## Important pre-existing one-CNOT preparation from a stabilizer input
+
+Liu, Low and Yin's 2026 journal paper already gives the explicit circuit
+\[
+|++\rangle \ \xrightarrow{\,T\otimes T\,}\
+\xrightarrow{\,\mathrm{CNOT}_{0\to1}\,}\
+\xrightarrow{\,I\otimes T\,}\
+(|00\rangle+i|01\rangle+i|10\rangle+i|11\rangle)/2.
+\]
+Thus **maximal two-qubit magic can already be prepared from a stabilizer state using three T gates and ONE CNOT** (see [Liu–Low–Yin Fig. 1, p. 5](https://doi.org/10.1088/2058-9565/ae3028)). Our two-CNOT threshold does **NOT** contradict this or claim a universal two-CNOT preparation cost. It is a **strict obstruction from the particular fixed magical input \(|\chi_*\rangle\)** when the subsequent circuit uses at most three T gates and only Clifford gates/CNOTs otherwise. The initial state's production cost is explicitly outside our budget. This is scientifically narrower than saying that two CNOTs are required to prepare maximal magic *in general*.
 
 ## Reproduce
 
