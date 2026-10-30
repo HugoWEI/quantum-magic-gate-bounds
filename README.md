@@ -4,7 +4,17 @@
 
 Study tight input-conditioned changes of the second stabilizer Rényi entropy M2 under limited-depth Clifford+T circuits, focusing on entangled inputs with prior magic. A universal one-T bound and the unconstrained two-qubit magic–entanglement frontier are already known and are **not** claimed as discoveries.
 
-## NEW: exact 99.9816% fidelity with the known maximal-magic Clifford orbit (30 Oct 2026)
+## NEW: exact maximal two-qubit magic needs three T and two CNOTs (30 Oct 2026)
+
+We now have a **perfect**, not near-perfect, resource-state preparation result for a **fixed already-magical input**:
+
+`chi*=(Rx(pi/4)⊗I)[A|00>+B|11>]`, with `A=(1-sqrt2+i(1+2sqrt2))/4`, `B=(1-sqrt2+i)/4`. This is a rotated-Schmidt input with `sin²(theta)=(2-sqrt2)/8`, `phi=atan(1-1/sqrt2)`, concurrence ≈0.521 and initial `R=153/64`. The chronological Pauli word **(XX,IZ,IY)** gives an output **identical up to global phase** to the established maximally magical Clifford fiducial `(1+3i,1+i,1-i,1+i)/4`, hence `R=7/4` and `M2=log2(16/7)` exactly.
+
+**Both gate budgets are sharp:** With unrestricted Clifford routing but **≤2 T**, the exact minimum moment is **463/256 > 7/4**. With **≤3 T and ≤1 physical CNOT**, the exact minimum is **8265/4096−81 sqrt2/512 ≈1.794089 >7/4**, a strict gap `(1097−648 sqrt2)/4096 >1/25`. A separate constructive Clifford compiler attains the optimum with **2 CNOTs** and three T gates. The exact certificate enumerates **3616 unrestricted** words and **19897 conservatively exhaustive restricted signed** candidates using only integer arithmetic in Q(sqrt2), with independent 4x4 matrix tests.
+
+[**Precise theorem, proof, physical caveats**](notes/exact_maximal_magic_two_cnot_threshold.md) · [exact executable certificate](src/three_t_exact_maximal_magic.py) · [tests](tests/test_three_t_exact_maximal_magic.py). **Input preparation resources are NOT counted; literature originality is NOT yet established.**
+
+## Earlier: exact 99.9816% fidelity with the known maximal-magic Clifford orbit (30 Oct 2026)
 
 Our **two-CNOT, three-T magic-optimal output** from the clean rotated-Schmidt input is **uniquely closest** among all **480** known maximally magical two-qubit Clifford fiducials to `(I⊗S)(H⊗H)(1,i,i,i)/2`. The **exact** squared overlap is `(17+3 sqrt(3)+4 sqrt(6))/32 = 0.999815981...`; the second-best among the 480 is only ≈0.817912. The final state also has concurrence ≈0.71032, close to the nearest fiducial's 1/sqrt(2). The restricted circuit's **M2-optimal** output has lower nearest-orbit fidelity ≈0.959518 (not a global fidelity optimization over restricted circuits).
 
