@@ -4,7 +4,7 @@ from math import pi,sqrt,log2
 import numpy as np
 from src.magic_bounds import ONE,X,paulis,concurrence,fourth_moment,m2
 from src.one_cnot_universality import signed_t
-from src.three_t_exact_maximal_magic import certify
+from src.three_t_exact_maximal_magic import certify,rotate,fourth_numerator,START,INDEX
 
 def exact_input():
     A=(1-sqrt(2)+1j*(1+2*sqrt(2)))/4
@@ -22,6 +22,23 @@ class ExactMaximalMagicTests(unittest.TestCase):
         self.assertEqual(global_best,((1835008,0),("XX","IZ","IY")))
         self.assertEqual(restricted[0],(2115840,-165888))
         self.assertEqual(gap,(280832,-165888))
+
+    def test_unrestricted_two_t_gate_lower_bound(self):
+        # Explicit 1+15+225 exact moment minimization, including shorter words.
+        best=fourth_numerator(START,0)
+        for p,i in INDEX.items():
+            v1=rotate(START,i,1)
+            m=fourth_numerator(v1,1)
+            if m[1]==0 and m[0]<best[0]:best=m
+            for q,j in INDEX.items():
+                v2=rotate(v1,j,1)
+                m=fourth_numerator(v2,2)
+                if m[1]==0 and m[0]<best[0]:best=m
+        # The certificate's exact sign comparator also checks potential
+        # irrational moments; the rational winner is verified here.
+        self.assertEqual(best,(1896448,0))
+        self.assertEqual(best[0]/(32**4),463/256)
+        self.assertGreater(463/256,7/4)
 
     def test_dense_statevectors_and_fiducial(self):
         psi=exact_input()
