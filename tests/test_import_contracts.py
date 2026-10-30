@@ -26,6 +26,8 @@ MODULES = [
     "src.maximal_magic_orbit_certificate",
     "src.three_t_exact_maximal_magic",
     "src.input_preparation_cost",
+    "src.one_t_natural_input_theorem",
+    "src.two_t_prepared_no_go",
 ]
 
 class ImportContractTests(unittest.TestCase):
