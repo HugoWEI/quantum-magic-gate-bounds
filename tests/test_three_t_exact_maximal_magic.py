@@ -5,6 +5,7 @@ import numpy as np
 from src.magic_bounds import ONE,X,paulis,concurrence,fourth_moment,m2
 from src.one_cnot_universality import signed_t
 from src.three_t_exact_maximal_magic import certify,rotate,fourth_numerator,START,INDEX,less
+from src.three_t_two_cnot_compiler import compile_three,apply_compiled
 
 def exact_input():
     A=(1-sqrt(2)+1j*(1+2*sqrt(2)))/4
@@ -53,6 +54,15 @@ class ExactMaximalMagicTests(unittest.TestCase):
         expect=8265/4096-81*sqrt(2)/512
         self.assertAlmostEqual(fourth_moment(restricted),expect,places=12)
         self.assertGreater(fourth_moment(restricted)-fourth_moment(output),.04)
+
+    def test_physical_two_cnot_compilation(self):
+        # Physical construction can differ by a final Clifford, which is
+        # harmless for the output M2 objective but not exact state synthesis.
+        compiled=compile_three("XX","IZ","IY")
+        self.assertEqual(compiled["cnot_count"],2)
+        output=apply_compiled(exact_input(),compiled)
+        self.assertAlmostEqual(fourth_moment(output),7/4,places=11)
+        self.assertAlmostEqual(m2(output),log2(16/7),places=11)
 
     def test_input_schmidt_angle_formula(self):
         theta=np.arcsin(np.sqrt((2-sqrt(2))/8))
