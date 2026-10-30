@@ -53,7 +53,12 @@ corresponding to a final magic-entropy advantage
 \boxed{\log_2\!\left(\frac{\frac{8265}{4096}-\frac{81\sqrt2}{512}}{7/4}\right)
 \simeq 0.03589674784\ \text{bits}.}
 \]
-**Exactly two CNOTs are necessary and sufficient** for maximum final magic from this fixed input with at most three T gates.
+**Both resources are tight:** exhaustive exact enumeration of all (1+15+225=241) unrestricted zero/one/two-T words also gives
+\[
+\boxed{R_{\le2T,\mathrm{unrestricted}}(\chi_*)=\frac{463}{256}
+>\frac74.}
+\]
+It is attained by chronological (IX,YY). Thus **at least three T gates are necessary**, even if arbitrary two-qubit Clifford routing is free. **With at most three T, exactly two CNOTs are necessary and sufficient** to attain the global magic maximum. The strict two-T shortfall and exact one-CNOT shortfall are distinct resource obstructions.
 
 ## Explicit perfect-output circuit
 
@@ -88,7 +93,7 @@ Each pair \((a,b)\) represents \(a+b\sqrt2\); omitted Paulis have expectation ze
 3. All **2457** one-CNOT-compatible ordered three-axis patterns and all **eight** independent sign assignments to \(T\)/\(T^\dagger\), with the CNOT allowed before, between or after T gates: a total of **19,897** conservative restricted comparisons;
 4. Compare all results with exact integer-square sign tests for \(a+b\sqrt2\) (no floating-point ordering).
 
-The unrestricted winning numerator is \((1\,835\,008,0)\), attained by (XX,IZ,IY). The restricted winning numerator is \((2\,115\,840,-165\,888)\), attained, for example, by signed chronological rotations (-YI,-XY,-IX), a one-CNOT-compatible word. The exact gap numerator \((280\,832,-165\,888)\) is strictly greater than \(32^4/25\) using integer comparisons.
+The best ≤2T unrestricted numerator is ((1\,896\,448,0)), corresponding to (R=463/256). The unrestricted winning numerator is \((1\,835\,008,0)\), attained by (XX,IZ,IY). The restricted winning numerator is \((2\,115\,840,-165\,888)\), attained, for example, by signed chronological rotations (-YI,-XY,-IX), a one-CNOT-compatible word. The exact gap numerator \((280\,832,-165\,888)\) is strictly greater than \(32^4/25\) using integer comparisons.
 
 The [independent test](../tests/test_three_t_exact_maximal_magic.py) constructs the complex input vector using \(\sqrt2\), applies the Pauli unitaries as dense 4x4 matrices, confirms fidelity **one** to the explicit maximal-magic fiducial, and independently checks both exact fourth moments and concurrence.
 
