@@ -13,13 +13,13 @@ such that the *subsequent* operation requires three T and two CNOTs to attain th
 
 Now charge **all** Clifford+T gates required to prepare \(\chi_*\) from a stabilizer state, instead of treating \(\chi_*\) as free.
 
-**Preparation-cost theorem (two-qubit ancilla-free Clifford+T):** Starting from any pure two-qubit stabilizer state, **at least 4 T gates and at least 1 CNOT** are necessary to prepare exactly \(\chi_*\) up to a global phase; **four T and one CNOT suffice simultaneously**. The lower bound on T count permits *unrestricted* CNOTs/Cliffords and the lower bound on CNOTs permits *unrestricted* local Clifford+T rotations. Thus both coordinates are individually sharp.
+**Preparation-cost theorem (two-qubit ancilla-free Clifford+T):** Starting from any **product** two-qubit stabilizer state, **at least 4 T gates and at least 1 CNOT** are necessary to prepare exactly \(\chi_*\) up to a global phase; **four T and one CNOT suffice simultaneously**. The lower bound on T count permits *unrestricted* CNOTs/Cliffords and the lower bound on CNOTs permits *unrestricted* local Clifford+T rotations. Thus both coordinates are individually sharp.
 
 The input is entangled with concurrence
 \[
 C(\chi_*)=\sqrt{(5-2\sqrt2)/8}>0,
 \]
-so **at least one CNOT** must be used to create it from a stabilizer product input. Allowing an arbitrary initial entangled stabilizer state could make this statement false if prep resources are not counted: the precise free initial state for the CNOT lower bound is the computational product state \(|00\rangle\), or another product stabilizer state. The four-T lower bound does hold from **any** stabilizer state. To avoid ambiguity, our main theorem is for preparation from \(|00\rangle\), with free local Clifford gates.
+so **at least one CNOT** must be used to create it from a stabilizer product input. An initially *entangled* stabilizer state would already contain entanglement, so the one-CNOT lower bound would not follow. The four-T lower bound applies to **any** stabilizer input. The joint sharp resource statement is for the product-stabilizer starting state \(|00\rangle\), or any product stabilizer state related by free local Cliffords.
 
 ## Exact four-T circuit using one CNOT
 
