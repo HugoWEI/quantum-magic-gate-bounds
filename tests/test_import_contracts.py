@@ -24,6 +24,7 @@ MODULES = [
     "src.correlation_tube",
     "src.three_t_simple_state_certificate",
     "src.maximal_magic_orbit_certificate",
+    "src.three_t_exact_maximal_magic",
 ]
 
 class ImportContractTests(unittest.TestCase):
