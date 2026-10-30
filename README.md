@@ -4,7 +4,15 @@
 
 Study tight input-conditioned changes of the second stabilizer Rényi entropy M2 under limited-depth Clifford+T circuits, focusing on entangled inputs with prior magic. A universal one-T bound and the unconstrained two-qubit magic–entanglement frontier are already known and are **not** claimed as discoveries.
 
-## NEW: exact no-go theorem for ALL naturally low-T-prepared input states (30 Oct 2026)
+## MAIN NEW THEOREM (30 Oct 2026): sharp input-preparation T threshold = 4
+
+We now have a fully specified **sharp resource threshold** for an input-conditioned entangling-gate advantage. Let a fixed pure two-qubit input be prepared using `t_prep` T gates and arbitrary global Cliffords from a stabilizer, **then supplied as input** to a new converter allowed **<=3 additional T**, arbitrary local Cliffords, and 1 or 2 CNOTs, without ancillas or measurements. **If `t_prep<=3`, a second CNOT can never improve the maximal final M2.** This is proved across **all 18,900** Clifford+<=3T-prepared input rays, grouped into **10 full Clifford orbits and 58 local Clifford classes**. Exactly **48 classes reach the absolute pure-state optimum R=7/4 using <=1 CNOT**; the other **10 classes** have sharp unrestricted and one-CNOT optimum `R=463/256`, proved via exact 3616-word lower-bound checks on both exceptional full Clifford orbits.
+
+Our previous engineered fixed magical input has **exact prep T-count 4** and a strict **two-CNOT > one-CNOT** gap with three additional T, so the **minimum input T-preparation count for *existence* of a second-CNOT advantage is exactly `4`**. This is a two-qubit, pure, ideal, ancilla-free, fixed-input conditional optimization theorem, *not* an end-to-end savings or a claim of literature priority.
+
+[**Precise theorem and complete exact proof**](notes/sharp_four_t_input_threshold.md) · [source code](src/three_t_prepared_threshold.py) · [58 independent physical-circuit tests](tests/test_three_t_prepared_threshold.py). The 2T version [covers 2,580 states](notes/low_t_prepared_no_go.md). **Publication originality unverified.**
+
+## Earlier: exact no-go theorem for ALL naturally low-T-prepared input states (30 Oct 2026)
 
 **Every pure two-qubit state prepared from a stabilizer using at most two T gates and arbitrary Cliffords** can reach the **absolute maximum pure two-qubit stabilizer Rényi entropy**, `M2=log2(16/7)`, using **at most three additional T gates and at most ONE CNOT** with free local Cliffords. The input family is finite: exact signed Clifford orbit enumeration yields **2,580 distinct input rays** split into four global Clifford orbits of sizes **60, 360, 720, 1,440**, and **16 local-Clifford equivalence classes**. One explicit signed three-T, <=1-CNOT word for **each** of the 16 classes is certified using integer arithmetic in `Z[sqrt2]`; independent 4x4 state-vector tests construct the physical <=1-CNOT circuits.
 
