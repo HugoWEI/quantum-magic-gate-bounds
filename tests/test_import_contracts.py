@@ -25,6 +25,7 @@ MODULES = [
     "src.three_t_simple_state_certificate",
     "src.maximal_magic_orbit_certificate",
     "src.three_t_exact_maximal_magic",
+    "src.input_preparation_cost",
 ]
 
 class ImportContractTests(unittest.TestCase):
