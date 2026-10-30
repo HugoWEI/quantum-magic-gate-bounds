@@ -12,7 +12,7 @@ We now have a **perfect**, not near-perfect, resource-state preparation result f
 
 **Both gate budgets are sharp:** With unrestricted Clifford routing but **≤2 T**, the exact minimum moment is **463/256 > 7/4**. With **≤3 T and ≤1 physical CNOT**, the exact minimum is **8265/4096−81 sqrt2/512 ≈1.794089 >7/4**, a strict gap `(1097−648 sqrt2)/4096 >1/25`. A separate constructive Clifford compiler attains the optimum with **2 CNOTs** and three T gates. The exact certificate enumerates **3616 unrestricted** words and **19897 conservatively exhaustive restricted signed** candidates using only integer arithmetic in Q(sqrt2), with independent 4x4 matrix tests.
 
-[**Precise theorem, proof, physical caveats**](notes/exact_maximal_magic_two_cnot_threshold.md) · [exact executable certificate](src/three_t_exact_maximal_magic.py) · [tests](tests/test_three_t_exact_maximal_magic.py). **Input preparation resources are NOT counted; literature originality is NOT yet established.**
+[**Precise theorem, proof, physical caveats**](notes/exact_maximal_magic_two_cnot_threshold.md) · [exact executable certificate](src/three_t_exact_maximal_magic.py) · [tests](tests/test_three_t_exact_maximal_magic.py). **Critical prior-art contrast:** Liu–Low–Yin (2026, Fig. 1) already prepare a maximally magical two-qubit state from the *stabilizer* `|++>` with **three T and ONE CNOT**. Our exact two-CNOT requirement is **strictly fixed-input** for the specified *already-magical* input, not an absolute resource requirement. **Input preparation resources are NOT counted; literature originality is NOT yet established.**
 
 ## Earlier: exact 99.9816% fidelity with the known maximal-magic Clifford orbit (30 Oct 2026)
 
