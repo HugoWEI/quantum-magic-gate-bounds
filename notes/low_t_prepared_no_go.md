@@ -58,7 +58,7 @@ All Pauli expectations for these ≤2T inputs lie in \(\mathbb Q(\sqrt2)\); the 
 R=\frac{A+B\sqrt2}{32^4},\qquad A,B\in\mathbb Z.
 \]
 
-The following **chronological** Pauli-axis triples attain exactly \(R=7/4\) for the 16 representatives, all with **negative-axis signs** (each \(T_{-P}=T_P^\dagger\) costs one standard T plus local Clifford correction in the chosen physical synthesis):
+The following **chronological** Pauli-axis triples attain exactly \(R=7/4\) for the 16 representatives, all with **negative-axis signs**. Each (T_{-P}=T_P^\dagger) is first **mapped onto a weight-one Pauli axis** by the appropriate at-most-one-CNOT Clifford frame, then implemented using a standard T plus a local (S^\dagger) correction. For **weight-two Pauli axes**, the inverse-to-positive correction need not be local *before* conjugation; our physical one-CNOT compiler accounts for this explicitly:
 
 | Local Clifford class | Signed axes (chronological, all negative) |
 |---|---|
@@ -84,7 +84,7 @@ For every class the certificate asserts **the exact same integer result**
 \sum_{P}\langle P\rangle_{\rm out}^4=\frac{1\,835\,008}{1\,048\,576}=\frac74,
 \quad B=0.
 \]
-It also verifies each triple's **physical one-CNOT compatibility** by enumerating local axis permutations and both CNOT orientations. Namely, it checks that the axes can be divided into a local prefix followed by a set conjugate to local axes under one CNOT plus local Cliffords. Negative T signs do not add T gates, because \(T^\dagger=S^\dagger T\) up to an overall phase.
+It also verifies each triple's **physical one-CNOT compatibility** by enumerating local axis permutations and both CNOT orientations. Namely, it checks that the axes can be divided into a local prefix followed by a set conjugate to local axes under one CNOT plus local Cliffords. Negative signs do not add T gates **after each signed axis is mapped to a local physical T**: (T^\dagger=S^\dagger T) up to an overall phase on one qubit. Assuming the same local correction for a weight-two Pauli before localization would be incorrect.
 
 A separate [direct complex-matrix test](../tests/test_two_t_prepared_no_go.py) reconstructs all 16 input density matrices from their exact Pauli vectors, extracts normalized pure states, directly applies the signed three-T rotations, and independently compiles each into a **0/1 physical CNOT** circuit. It checks the states agree up to a trailing Clifford, which preserves \(M_2\).
 
