@@ -28,6 +28,7 @@ MODULES = [
     "src.input_preparation_cost",
     "src.one_t_natural_input_theorem",
     "src.two_t_prepared_no_go",
+    "src.three_t_prepared_threshold",
 ]
 
 class ImportContractTests(unittest.TestCase):
