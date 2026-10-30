@@ -4,7 +4,7 @@ from math import pi,sqrt,log2
 import numpy as np
 from src.magic_bounds import ONE,X,paulis,concurrence,fourth_moment,m2
 from src.one_cnot_universality import signed_t
-from src.three_t_exact_maximal_magic import certify,rotate,fourth_numerator,START,INDEX
+from src.three_t_exact_maximal_magic import certify,rotate,fourth_numerator,START,INDEX,less
 
 def exact_input():
     A=(1-sqrt(2)+1j*(1+2*sqrt(2)))/4
@@ -29,13 +29,12 @@ class ExactMaximalMagicTests(unittest.TestCase):
         for p,i in INDEX.items():
             v1=rotate(START,i,1)
             m=fourth_numerator(v1,1)
-            if m[1]==0 and m[0]<best[0]:best=m
+            if less(m,best):best=m
             for q,j in INDEX.items():
                 v2=rotate(v1,j,1)
                 m=fourth_numerator(v2,2)
                 if m[1]==0 and m[0]<best[0]:best=m
-        # The certificate's exact sign comparator also checks potential
-        # irrational moments; the rational winner is verified here.
+        # All candidate comparisons use exact signs in Q(sqrt(2)).
         self.assertEqual(best,(1896448,0))
         self.assertEqual(best[0]/(32**4),463/256)
         self.assertGreater(463/256,7/4)
