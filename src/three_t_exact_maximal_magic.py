@@ -69,18 +69,21 @@ def run_word(word,signs=None):
 def certify(verbose=True):
     global_best=(fourth_numerator(START,0),())
     restricted_best=global_best
+    best_two_t=global_best
     n_global=1
     for p in AXES:
         v1=rotate(START,INDEX[p],1)
         value=fourth_numerator(v1,1)
         n_global+=1
         if less(value,global_best[0]):global_best=(value,(p,))
+        if less(value,best_two_t[0]):best_two_t=(value,(p,))
         if less(value,restricted_best[0]):restricted_best=(value,(p,))
         for q in AXES:
             v2=rotate(v1,INDEX[q],1)
             value=fourth_numerator(v2,2)
             n_global+=1
             if less(value,global_best[0]):global_best=(value,(p,q))
+            if less(value,best_two_t[0]):best_two_t=(value,(p,q))
             if less(value,restricted_best[0]):restricted_best=(value,(p,q))
             for r in AXES:
                 value=fourth_numerator(rotate(v2,INDEX[r],1),3)
@@ -102,6 +105,7 @@ def certify(verbose=True):
                     restricted_best=(value,((AXES[p],AXES[q],AXES[r]),signs))
 
     assert (n_global,n_restricted,len(permitted))==(3616,19897,2457)
+    assert best_two_t[0]==(1896448,0) # sharp unrestricted <=2T R=463/256
     assert global_best==((1835008,0),("XX","IZ","IY"))
     assert restricted_best[0]==(2115840,-165888)
     assert ("YI","XY","IX") in permitted
@@ -125,6 +129,7 @@ def certify(verbose=True):
     if verbose:
         print("PASS 3616 unrestricted, 19897 overcomplete <=1-CNOT candidates")
         print("PASS: exact maximal two-qubit M2 reached by (XX,IZ,IY)")
+        print("PASS unrestricted <=2T R=463/256; exactly 3 T required for R=7/4")
         print("PASS unrestricted R=7/4; restricted R=8265/4096-81sqrt2/512")
         print("PASS strict R gap=(1097-648sqrt2)/4096 >1/25")
         print("PASS final Pauli signature exactly matches a maximal-magic fiducial")
