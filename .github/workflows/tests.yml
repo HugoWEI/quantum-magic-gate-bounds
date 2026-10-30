@@ -35,4 +35,6 @@ jobs:
       - run: python -m src.maximal_magic_orbit_certificate
       - run: python -m src.three_t_exact_maximal_magic
       - run: python -m src.input_preparation_cost
+      - run: python -m src.one_t_natural_input_theorem
+      - run: python -m src.two_t_prepared_no_go
       - run: python -m unittest discover -s tests -v
