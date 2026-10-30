@@ -109,7 +109,7 @@ def certify(verbose=True):
     gap=(restricted_best[0][0]-global_best[0][0],
          restricted_best[0][1]-global_best[0][1])
     assert gap==(280832,-165888)
-    assert sign_qsqrt2((gap[0]-40960,gap[1]))>0 # gap > 1/25
+    assert sign_qsqrt2((25*gap[0]-32**4,25*gap[1]))>0 # strict gap > 1/25
 
     # The unrestricted output has exactly the 12 +/- 1/2 and 3 zero
     # Pauli expectations of the explicitly stated maximal-magic fiducial.
