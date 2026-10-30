@@ -4,7 +4,15 @@
 
 Study tight input-conditioned changes of the second stabilizer Rényi entropy M2 under limited-depth Clifford+T circuits, focusing on entangled inputs with prior magic. A universal one-T bound and the unconstrained two-qubit magic–entanglement frontier are already known and are **not** claimed as discoveries.
 
-## NEW: exact end-to-end accounting — tuned input prep costs four T and one CNOT (30 Oct 2026)
+## NEW: exact no-go theorem for ALL naturally low-T-prepared input states (30 Oct 2026)
+
+**Every pure two-qubit state prepared from a stabilizer using at most two T gates and arbitrary Cliffords** can reach the **absolute maximum pure two-qubit stabilizer Rényi entropy**, `M2=log2(16/7)`, using **at most three additional T gates and at most ONE CNOT** with free local Cliffords. The input family is finite: exact signed Clifford orbit enumeration yields **2,580 distinct input rays** split into four global Clifford orbits of sizes **60, 360, 720, 1,440**, and **16 local-Clifford equivalence classes**. One explicit signed three-T, <=1-CNOT word for **each** of the 16 classes is certified using integer arithmetic in `Z[sqrt2]`; independent 4x4 state-vector tests construct the physical <=1-CNOT circuits.
+
+**Necessary condition:** any input that exhibits our strict **two-CNOT** advantage when allowed up to three *additional* T gates must have exact stabilizer-to-input **T-preparation count at least 3**. Our previous engineered input has count 4, consistent with this theorem. This is a **conditional, pure, ancilla-free** statement, not a claim of general state-preparation savings. The global bound `log2(16/7)` and the Clifford tools are known prior art; **the originality of this finite conversion theorem is not yet verified**.
+
+[**Theorem and 16 exact circuit witnesses**](notes/low_t_prepared_no_go.md) · [one-T orbit engine](src/one_t_natural_input_theorem.py) · [2,580-state exact certificate](src/two_t_prepared_no_go.py) · [independent dense physical circuit tests](tests/test_two_t_prepared_no_go.py). **Next target:** determine whether *three*-T-prepared natural inputs already support a strict two-CNOT gain, or whether the minimum input-preparation T-count is 4.
+
+## Earlier: exact end-to-end accounting — tuned input prep costs four T and one CNOT (30 Oct 2026)
 
 The tuned magical input `chi*=(Rx(pi/4)⊗I)(A|00>+B|11>)` from our 3T/2CNOT fixed-input theorem is **not free** when prepared from a product stabilizer `|00>`. We have now proved its **sharp preparation cost: 4 T gates and 1 physical CNOT**. An exact normal-form enumeration of 3616 zero/one/two/three-T words shows that any two-qubit stabilizer input can produce only **nine** values of the Clifford-invariant Pauli fourth moment `R` with <=3 T; the tuned target has `R=153/64`, which is absent. A constructive 4-T local-rotation word `(IX,IY,IZ,XI)` followed by `H0,CNOT(0→1),H1,H0` reproduces every target Pauli correlation **exactly** (and the full state up to phase). Its entanglement proves one CNOT necessary from a *product* stabilizer.
 
